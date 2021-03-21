@@ -1,0 +1,24 @@
+#%Module1.0#####################################################################
+###
+### modules openmpi/4.0.5_gcc-8.3.1
+###
+### /share/apps/modules/openmpi/4.0.5_gcc-8.3.1  Written by Juan Diego Ocampo
+###
+
+proc ModulesHelp { } {
+    puts stderr "\topenmpi/4.0.5_gcc-8.3.1 - sets the Environment for OpenMPI 4.0.5 \
+    \n\tlocated in /share/apps/openmpi/4.0.5/gcc-8.3.1 \n"
+}
+        
+module-whatis "\n\n\tSets the environment for using OpenMPI (Open source\
+              \n\tMessage Passing Interface implementation) \
+              \n\tBuilt with GCC 8.3.1\n"
+
+# for Tcl script use only
+set       topdir     /share/apps/tempo/1.0.0/intel-2021
+set       version    4.0.5
+set       sys        x86_64-redhat-linux
+
+
+prepend-path    PATH                    $topdir/bin
+setenv		TEMPO			$topdir

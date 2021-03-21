@@ -1,0 +1,29 @@
+#%Module1.0#####################################################################
+###
+### modules glib/2.66.4_intel-2021
+###
+### /share/apps/modules/glib/2.66.4_intel-2021  Written by Santiago Gil Zapata
+###
+
+proc ModulesHelp { } {
+    puts stderr "\topenmpi/2.66.4_intel-2021 - sets the Environment for glib 2.66.4 \
+    \n\tlocated in /share/apps/glib/2.66.4/intel-2021 \n"
+}
+        
+module-whatis "\n\n\tSets the environment for using OpenMPI (Open source\
+              \n\tMessage Passing Interface implementation) \
+              \n\tBuilt with ICC 2021\n"
+
+# for Tcl script use only
+set       topdir     /share/apps/glib/2.66.4/intel-2021
+set       version    2.66.4
+set       sys        x86_64-redhat-linux
+
+prepend-path    PATH                    $topdir/bin
+prepend-path 	LD_LIBRARY_PATH    	$topdir/lib64
+prepend-path 	LIBRARY_PATH       	$topdir/lib64
+prepend-path 	LD_RUN_PATH        	$topdir/lib64
+
+prepend-path    C_INCLUDE_PATH          $topdir/include
+prepend-path    CXX_INCLUDE_PATH        $topdir/include
+prepend-path    CPLUS_INCLUDE_PATH      $topdir/include
