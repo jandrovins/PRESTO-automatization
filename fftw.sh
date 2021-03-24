@@ -12,4 +12,5 @@ export CC='icc' CFLAGS='-xHost -O3 -g' F77='ifort' FFLAGS='-f77rtl -fast'
 ./configure --enable-shared --enable-single --prefix=/share/apps/FFTW/3.3.9/intel-2021 --enable-avx
 
 # module
-
+mkdir /share/apps/modules/fftw
+cp /root/PRESTO-automatization/modules/fftw/3.3.9_intel-2021 /share/apps/modules/fftw
