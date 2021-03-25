@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# download test and python script
+cd /root/PRESTO-automatization
+./download_datasets.sh
+
 # TEST DATA 1
 cd /root/PRESTO-automatization
 ./sbatch_prestoTD1.sh
