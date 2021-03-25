@@ -6,8 +6,8 @@ cd /root/PRESTO-automatization
 
 # TEST DATA 1
 cd /root/PRESTO-automatization
-./sbatch_prestoTD1.sh
+./sbatch/sbatch_prestoTD1.sh
 
 # TEST DATA 2
 cd /root/PRESTO-automatization
-./sbatch_prestoTD2.sh
+./sbatch/sbatch_prestoTD2.sh
