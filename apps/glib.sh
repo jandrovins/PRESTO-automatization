@@ -22,3 +22,5 @@ ninja -C build-icc
 ninja -C build-icc install
 
 cd $ROOT_DIR
+
+cp -r $ROOT_DIR/modules/glib /share/apps/modules
