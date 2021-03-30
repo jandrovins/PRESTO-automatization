@@ -4,10 +4,15 @@
 cd /root/PRESTO-automatization
 ./download_datasets.sh
 
-# TEST DATA 1
+# copy sbatch files
 cd /root/PRESTO-automatization
-./sbatch/sbatch_prestoTD1.sh
+cp sbatch/sbatch_prestoTD1.sh /root/presto/TestData1
+cp sbatch/sbatch_prestoTD2.sh /root/presto/TestData2
+
+# TEST DATA 1
+cd /root/presto/TestData1
+./sbatch_prestoTD1.sh
 
 # TEST DATA 2
-cd /root/PRESTO-automatization
-./sbatch/sbatch_prestoTD2.sh
+cd /root/presto/TestData2
+./sbatch_prestoTD2.sh
