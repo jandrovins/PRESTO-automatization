@@ -18,6 +18,7 @@ make -j 16
 make clean
 
 #INSTALL PRESTO PYTHON ROUTINES
+source ~/anaconda3/bin/activate 
 conda create -n prestopy2 python=2.7 python -y
 conda activate prestopy2
 pip install numpy scipy

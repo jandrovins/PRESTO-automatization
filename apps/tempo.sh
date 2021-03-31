@@ -15,6 +15,7 @@ cp /root/asc-environment/PRESTO-automatization/files/bnrydds.f src/
 ./configure --prefix=$TEMPO
 rm -f Makefile
 cp /root/asc-environment/PRESTO-automatization/files/Makefile .
+make
 make install
 
 # module

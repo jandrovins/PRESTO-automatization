@@ -15,4 +15,4 @@ make install
 
 # module
 mkdir /share/apps/modules/cfitsio
-cp /root/PRESTO-automatization/modules/cfitsio/3.49_intel-2021 /share/apps/modules/cfitsio
+cp /root/asc-environment/PRESTO-automatization/modules/cfitsio/3.49_intel-2021 /share/apps/modules/cfitsio
