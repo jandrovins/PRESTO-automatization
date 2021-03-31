@@ -10,7 +10,9 @@ cd intel-2021
 source /share/apps/intel/oneapi/setvars.sh
 export CC='icc' CFLAGS='-xHost -O3 -g' F77='ifort' FFLAGS='-f77rtl -fast'
 ./configure --enable-shared --enable-single --prefix=/share/apps/fftw/3.3.9/intel-2021 --enable-avx
+make
+make install
 
 # module
-mkdir /share/apps/modules/fftw
-cp /root/PRESTO-automatization/modules/fftw/3.3.9_intel-2021 /share/apps/modules/fftw
+#mkdir /share/apps/modules/fftw
+cp /root/asc-environment/PRESTO-automatization/modules/fftw/3.3.9_intel-2021 /share/apps/modules/fftw
