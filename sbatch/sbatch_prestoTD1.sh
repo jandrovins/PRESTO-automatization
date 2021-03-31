@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #SBATCH --job-name='PRESTO TD1'
 #SBATCH --output=out-%J.log
@@ -7,9 +7,9 @@
 #SBATCH --cpus-per-task=16
 #SBATCH --nodes=1
 #SBATCH --time=14-0
-#SBATCH --nodelist=compute-1-13
+#SBATCH --nodelist=compute-1-5
 
-#source ~/anaconda3/bin/activate # conda activation
+source ~/anaconda3/bin/activate # conda activation
 source /share/apps/intel/oneapi/setvars.sh # since most of the dependencies are compiled with intel compilers
 
 # GCC
