@@ -3,7 +3,7 @@
 ROOT_DIR=$(pwd)
 DIS_DIR=$ROOT_DIR/files/pgplot
 SRC_DIR=$DIS_DIR/pgplot-5.2
-TARGET_DIR='/share/apps/pgplot/gcc-8.3.1'
+TARGET_DIR='/shared/apps/pgplot/gcc-8.3.1'
 
 tar xf $DIS_DIR/pgplot-5.2.tar.gz -C $DIS_DIR
 mkdir -p $TARGET_DIR
@@ -20,4 +20,4 @@ make clean
 make cpg
 
 cd $ROOT_DIR
-cp -r ./modules/pgplot /share/apps/modules/
+cp -r ./modules/pgplot /shared/apps/modules/
