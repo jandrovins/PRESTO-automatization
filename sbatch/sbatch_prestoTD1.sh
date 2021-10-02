@@ -10,7 +10,7 @@
 #SBATCH --nodelist=compute-1-5
 
 source ~/anaconda3/bin/activate # conda activation
-source /share/apps/intel/oneapi/setvars.sh # since most of the dependencies are compiled with intel compilers
+source /share/apps/intel/setvars.sh # since most of the dependencies are compiled with intel compilers
 
 # GCC
 conda activate prestopy2 # Contains presto GCC

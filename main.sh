@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cd /root/asc-environment/PRESTO-automatization
+cd /root/PRESTO-automatization
 ./compilations.sh
-./launch_presto.sh
+#./launch_presto.sh

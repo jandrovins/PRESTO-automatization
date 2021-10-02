@@ -1,41 +1,24 @@
 #!/bin/bash
+export ROOT_DIR=$(pwd)
+source /share/apps/intel/setvars.sh --config=${ROOT_DIR}/config.txt
+export CC='icx' CFLAGS='-march=sandybridge -O3 -Ofast -fp-model fast' F77='ifort' FFLAGS='-f77rtl -fast'
 
-#compile dependencies
-#sudo dnf install -y ninja-build meson
+#install dependencies
+sudo dnf install -y ninja-build meson
 
-ROOT_DIR=$(pwd)
 DIS_DIR=$ROOT_DIR/files/glib
-TAR_DIR=/shared/apps/glib/2.66.4/intel-2021
+TAR_DIR=/share/apps/glib/2.66.4/intel-2021
 
-#COMPILING DEPENDENCIES
-sudo yum install -y ninja-build 
-
-# #ninja
-# tar -xf $DIS_DIR/ninja-1.10.2.tar.gz -C $DIS_DIR
-# NINJA=$DIS_DIR/ninja-1.10.2
-# cd $NINJA
-# ./configure.py --bootstrap
-# PATH=$PATH:$NINJA
-
-# #meson
-# cd $ROOT_DIR
-
-# tar -xf $DIS_DIR/meson-0.57.1.tar.gz -C $DIS_DIR
-# MESON=$DIS_DIR/meson-0.57.1
-# PATH=$PATH:$MESON
-
-tar -xf $DIS_DIR/glib-2.66.4.tar.xz -C $DIS_DIR
+tar -C $DIS_DIR -xf $DIS_DIR/glib-2.66.4.tar.xz
 SRC_DIR=$DIS_DIR/glib-2.66.4
 
 cd $SRC_DIR
 
 sudo mkdir -p $TAR_DIR
-source /shared/apps/intel/oneapi/setvars.sh --config=$ROOT_DIR/config.txt
-export CC='icc' CXX='icpc' CFLAGS='-xHost -O3 -g'
 sudo meson build-icc --prefix $TAR_DIR
-ninja-build -C build-icc
-ninja-build -C build-icc install
+ninja-build -C build-icc || exit 1
+ninja-build -C build-icc install || exit 2
 
 cd $ROOT_DIR
 
-sudo cp -r $ROOT_DIR/modules/glib /shared/apps/modules
+sudo cp -r $ROOT_DIR/modules/glib /share/apps/modules

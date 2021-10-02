@@ -1,25 +1,23 @@
 #!/bin/bash
+export ROOT_DIR=$(pwd)
+source /share/apps/intel/setvars.sh --config=${ROOT_DIR}/config.txt
+export CC='icx' CFLAGS='-march=sandybridge -O3 -Ofast -fp-model fast' F77='ifort' FFLAGS='-f77rtl -fast'
 
 # tempo compilation
-ROOT_DIR=$(pwd)
-mkdir -p /shared/apps/tempo/1.0.0
-cd /shared/apps/tempo/1.0.0
+mkdir -p /share/apps/tempo/1.0.0
+cd /share/apps/tempo/1.0.0
 git clone git://git.code.sf.net/p/tempo/tempo 
 mv tempo intel-2021
 cd intel-2021
-source /shared/apps/intel/oneapi/setvars.sh --config=${ROOT_DIR}/config.txt
-export CC='icc' CFLAGS='-xHost -O3 -g' F77='ifort' FFLAGS='-f77rtl -fast'
-export TEMPO='/shared/apps/tempo/1.0.0/intel-2021'
 rm -f src/bnrydds.f
 cp ${ROOT_DIR}/files/tempo/bnrydds.f src/
 ./prepare
 ./configure --prefix=$TEMPO
-rm -f Makefile src/Makefile
-cp ${ROOT_DIR}/files/tempo/root_makefile Makefile
-cp ${ROOT_DIR}/files/tempo/src_makefile src/Makefile
-make
-make install
+rm -f src/Makefile
+cp ${ROOT_DIR}/files/tempo/src_Makefile.ManuGil src/Makefile
+make -j 16 || exit 1
+make install || exit 2
 
 # module
-mkdir /shared/apps/modules/tempo
-cp ${ROOT_DIR}/modules/tempo/1.0.0_intel-2021 /shared/apps/modules/tempo
+mkdir /share/apps/modules/tempo
+cp ${ROOT_DIR}/modules/tempo/1.0.0_intel-2021 /share/apps/modules/tempo
